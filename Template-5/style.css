@@ -1,0 +1,49 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: bold;
+            color: blue;
+            text-align: center;
+            text-decoration: underline
+        }
+
+        table {
+            font-family: Poppins;
+            color: white;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: normals;
+            background: #CF83D9;
+            border-collapse: collapse;
+            border: 3px solid #000000;
+            border-style: dashed;
+            background: linear-gradient(160deg, #58ADF2, #D951FF);
+        }
+
+        table.inner {
+            border: 3px
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=number] {
+            width: 50%;
+            padding: 6px 6px;
+            margin: 5px 0px;
+            box-sizing: border-box;
+        }
+
+        button[type=submit],
+        button[type=reset] {
+            width: 40%;
+            padding: 0px 20px;
+            margin: auto;
+            box-sizing: border-box;
+            button-align: center;
+            position: center;
+            text-align: center;
+            display: flex;
+        }
+   
