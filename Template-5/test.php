@@ -238,18 +238,117 @@
           
             <tr>
         
-            <td>
-                    <input type="submit" value="Submit">
-           </td>
-
-             <td>
-                    <input type="reset" value="Reset">
+            <td colspan="2" align="center">
+                    <input class="textbox" type="submit" value="Submit">
+        
+                    <input class="textbox" type="reset" value="Reset">
                 </td>
           
             </tr>
            
         </table>
         </form>
+
+       <?php
+            require ('connect.php');
+            
+            if (isset($_REQUEST['fname'])) {
+                // removes backslashes
+                $First_Name = stripslashes($_REQUEST['fname']);
+                //escapes special characters in a string
+                $fname = mysqli_real_escape_string($con, $fname);
+                $lname    = stripslashes($_REQUEST['lname']);
+                $lname = mysqli_real_escape_string($con, $lname);
+                $email    = stripslashes($_REQUEST['email']);
+                $email = mysqli_real_escape_string($con, $email);
+                $number    = stripslashes($_REQUEST['number']);
+                $number = mysqli_real_escape_string($con, $number);
+                $gender    = stripslashes($_REQUEST['gender']);
+                $gender = mysqli_real_escape_string($con, $gender);
+                // ---------------------------------------------
+
+
+                $BirthDay    = stripslashes($_REQUEST['BirthDay']);
+                $BirthDay    = mysqli_real_escape_string($con, $BirthDay);
+                $BirthdayMonth    = stripslashes($_REQUEST['BirthdayMonth']);
+                $BirthdayMonth    = mysqli_real_escape_string($con, $BirthdayMonth);
+                $BirthdayYear    = stripslashes($_REQUEST['BirthdayYear']);
+                $BirthdayYear    = mysqli_real_escape_string($con, $BirthdayYear);
+
+                $dob = $BirthDay."-".$BirthdayMonth."-".$BirthdayYear;
+
+                //----------------------------------------------------------------------------------
+
+
+
+                $address = stripslashes($_REQUEST['address']);
+                $address = mysqli_real_escape_string($con, $address);
+                
+                $city = stripslashes($_REQUEST['city']);
+                $city = mysqli_real_escape_string($con, $city);
+
+                $pin = stripslashes($_REQUEST['pin']);
+                $pin = mysqli_real_escape_string($con, $pin);
+
+                $state = stripslashes($_REQUEST['state']);
+                $state = mysqli_real_escape_string($con, $state);
+
+                $country = stripslashes($_REQUEST['country']);
+                $country = mysqli_real_escape_string($con, $country);
+
+                //-------------------------------------------------------------------------------
+
+                $Drawing    = stripslashes($_REQUEST['Drawing']);
+                $Singing    = mysqli_real_escape_string($con, $Singing);
+                $Dancing    = stripslashes($_REQUEST['Dancing']);
+                $Sketching    = stripslashes($_REQUEST['Sketching']);
+                $Other   = stripslashes($_REQUEST['Other']);
+                
+
+                $hobby = $Drawing."-".$Singing."-".$Dancing."-".$Sketching."-".$Other;
+
+
+                //-------------------------------------------------------------------------------
+
+                $High School(10th)    = stripslashes($_REQUEST['High School(10th)']);
+                $Higher School(12th)  = mysqli_real_escape_string($con, $Higher School(12th));
+                $Graduation(Bachelors)    = stripslashes($_REQUEST['Graduation(Bachelors)']);
+                $Post Graduation(Masters)    = stripslashes($_REQUEST['Post Graduation(Masters)']);
+                $Phd            = stripslashes($_REQUEST['Phd']);
+                
+
+                $qualification = $High School(10th)."-".$Higher School(12th)."-".$Graduation(Bachelors)."-".$Post Graduation(Masters)."-".$Phd;
+
+                 //-------------------------------------------------------------------------------
+
+                 $BCA    = stripslashes($_REQUEST['BCA']);
+                 $B.Com    = stripslashes($_REQUEST['B.Com']);
+                 $B.Sc    = stripslashes($_REQUEST['B.Sc']);
+                 $BA    = stripslashes($_REQUEST['BA']);
+                 $MCA    = stripslashes($_REQUEST['MCA']);
+                 $M.Com    = stripslashes($_REQUEST['M.Com']);
+                 $M.Sc    = stripslashes($_REQUEST['M.Sc']);
+                 $MA    = stripslashes($_REQUEST['MA']);
+                 
+ 
+                 $course = $BCA."-".$B.Com."-".$B.Sc."-".$BA."-".$MCA."-".$M.Com."-".$M.Sc."-".$MA;
+
+
+                  //-------------------------------------------------------------------------------
+
+                $create_datetime = date("Y-m-d H:i:s");
+                $query    = "INSERT into prof (id,fname,lname,gender,email,number,address,country,city,state,pin,course,hobbies,dob,qualification) values(id,$fname,$lname,$gender,$email,$number,$address,$country,$city,$state,$pin,$course,$hobbies,$dob,$qualification)";
+                $result   = mysqli_query($con, $query);
+                if ($result) {
+       
+                } else {
+
+                }
+            }            
+            
+            ?>
+ 
+
 </body>
 
 </html>
